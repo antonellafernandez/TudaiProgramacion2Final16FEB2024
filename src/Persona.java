@@ -33,10 +33,13 @@ public class Persona {
 
     @Override
     public boolean equals(Object oo) {
-        Persona otraPersona = (Persona) oo;
+        try {
+            Persona otraPersona = (Persona) oo;
 
-        return this.nombre.equals(otraPersona.getNombre()) &&
-               this.apellido.equals(otraPersona.getApellido()) &&
-               this.mail.equals(otraPersona.getMail());
+            return this.nombre.equals(otraPersona.getNombre()) &&
+                this.apellido.equals(otraPersona.getApellido()) &&
+                this.mail.equals(otraPersona.getMail());
+    } catch (ClassCastException ee) {
+        return false;
     }
 }
